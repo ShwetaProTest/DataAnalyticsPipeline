@@ -1,0 +1,43 @@
+As retraced, we want to find out how many of our companies are active in our retraced dashboard. We already track the user logins and which companies they manage on our platform. A user can be part of several companies in our system.
+
+We count users as active for an individual company when they have accepted the terms and conditions (T&C). Regard that a user can be active in one company, but not yet in another one.
+
+Further, we count a company as active if there is at least one active user.
+
+Now, we must report this regularly and need an analytics pipeline converting our database content over to an easy digestible and optimized format to query amazingly fast how many users are active at a given day, at a given month, over several months; and the same number for the active companies.
+
+Instead of connecting to our database, we provide you with the raw files (with randomized values) as CSV you can use for building the analytics pipeline.
+
+[user_companies.csv](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/47aad709-c383-410a-a685-44fd110e6003/user_companies.csv)
+
+[user_login_locations.csv](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/127494b9-475f-4363-bfa6-6f72190081c0/user_login_locations.csv)
+
+# Task
+
+- Build the pipeline with Azure Synapse, from raw CSV ultimately to a data lake table “cubing” the data for easy aggregate querying
+- Provide some kind of star schema based on dimensions of date and company, and the facts about the amount of logins. If you feel other aspects matter, please feel free to adjust it.
+- Have a final serverless SQL query to show
+    - the active users over time
+    - the active companies over time
+    - the potential active companies every month (all previously active companies, but which are not active any more in a month, because no user has logged in)
+- Connect Azure synapse to a **private** GitHub repo of yours
+
+### Bonus
+
+- Optimize the CSV as Parque file first and store back in the data lake
+- Connect PowerBI cloud and show a nice bar chart of total active companies over time
+
+# What we would like to see from your end implementation
+
+- Understand data engineering best practice
+- Clean and simple data structures
+- High performance query-able tables
+- Data lake usage
+
+# Result submission
+
+Please submit the code and all assets into a private GitHub repository (where you have in best case connected Azure synapse to as well) and share it a day before the follow-up call. The names to be invited are in the email you have received 🙂
+
+If you have any questions, please ask the person who submitted you this page.
+
+Looking forward to the result 🚀
